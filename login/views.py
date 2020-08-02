@@ -47,7 +47,7 @@ def login(request):
             if user.password==hash_code(password):
                 #往session字典内写入用户状态和数据
                 request.session['is_login']=True
-                request.session['user_id']=user.id
+                request.session['user_id']=str(user.id)
                 request.session['user_name']=user.name
                 return redirect('/index/')
             else:
